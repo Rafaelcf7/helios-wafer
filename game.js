@@ -15,7 +15,36 @@ const fixedLevels = [
     flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 2
   },
-  // ... Repita para as outras 19 fases, variando plataformas, inimigos, etc ...
+  // Fase 2 (exemplo genérico)
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+    ],
+    coinItems: [],
+    powerups: [],
+    enemies: [],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 3
+  },
+  // Fase 3 corrigida: chão contínuo, sem buracos impossíveis
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' }, // chão até a bandeira
+    ],
+    coinItems: [],
+    powerups: [],
+    enemies: [],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 4
+  },
 ];
 // --- SUPORTE GAMEPAD ---
 let gamepadIndex = null;

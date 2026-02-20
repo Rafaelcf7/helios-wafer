@@ -1,28 +1,28 @@
 // Array de 20 fases fixas
 const fixedLevels = [
-  // Exemplo de fase 1
+  // Fase 1 ajustada para ser totalmente passável
   {
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
     platforms: [
-      { x: 0, y: 500, w: 700, h: 40, type: 'ground' },
-      { x: 800, y: 400, w: 200, h: 30, type: 'brick' },
-      { x: 1200, y: 350, w: 200, h: 30, type: 'brick' },
-      { x: 2000, y: 500, w: 700, h: 40, type: 'ground' },
+      { x: 0, y: 500, w: 1000, h: 40, type: 'ground' }, // chão longo
+      { x: 1200, y: 420, w: 200, h: 30, type: 'brick' }, // salto fácil
+      { x: 1600, y: 370, w: 200, h: 30, type: 'brick' }, // salto fácil
+      { x: 2000, y: 500, w: 2000, h: 40, type: 'ground' }, // chão até a bandeira
     ],
     coinItems: [
-      { x: 450, y: 320, r: 10, collected: false },
-      { x: 960, y: 350, r: 10, collected: false },
+      { x: 450, y: 470, r: 10, collected: false },
+      { x: 1300, y: 390, r: 10, collected: false },
     ],
     powerups: [
-      { type: 'mushroom', x: 960, y: 414, w: 26, h: 26, collected: false },
+      { type: 'mushroom', x: 1300, y: 414, w: 26, h: 26, collected: false },
     ],
     enemies: [
-      { type: 'patrol', x: 510, y: 470, w: 30, h: 30, vx: 2.4, minX: 460, maxX: 700, alive: true },
+      { type: 'patrol', x: 900, y: 470, w: 30, h: 30, vx: 1.5, minX: 800, maxX: 1000, alive: true },
     ],
     skyCannons: [],
     spikePistons: [],
-    flag: { x: 3800, y: 360, w: 20, h: 140 },
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 2
   },
   // ... Repita para as outras 19 fases, variando plataformas, inimigos, etc ...
@@ -2232,6 +2232,10 @@ window.addEventListener('keydown', (event) => {
   unlockAudio();
   if (['ArrowLeft', 'ArrowRight', 'ArrowUp', ' ', 'x', 'X', 'k', 'K'].includes(event.key)) {
     event.preventDefault();
+    // Remove o foco de qualquer botão ativo
+    if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+      document.activeElement.blur();
+    }
   }
   onKeyChange(event, true);
 });

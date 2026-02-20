@@ -30,7 +30,7 @@ const fixedLevels = [
     flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 3
   },
-  // Fase 3 corrigida: chão contínuo, sem buracos impossíveis
+  // Fase 3 totalmente livre: apenas chão e bandeira
   {
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
@@ -68,19 +68,35 @@ function pollGamepad() {
 window.addEventListener('gamepadconnected', (e) => {
   gamepadIndex = e.gamepad.index;
   pollGamepad();
-  // Oculta botões mobile
+  // Oculta todos os botões mobile
+  hideMobileButtons();
+});
+window.addEventListener('gamepaddisconnected', (e) => {
+  if (gamepadIndex === e.gamepad.index) gamepadIndex = null;
+  // Mostra todos os botões mobile novamente
+  showMobileButtons();
+// Funções para ocultar e mostrar botões mobile
+function hideMobileButtons() {
   if (ui && ui.mobileLeft) ui.mobileLeft.style.display = 'none';
   if (ui && ui.mobileRight) ui.mobileRight.style.display = 'none';
   if (ui && ui.mobileJump) ui.mobileJump.style.display = 'none';
   if (ui && ui.mobileFire) ui.mobileFire.style.display = 'none';
-});
-window.addEventListener('gamepaddisconnected', (e) => {
-  if (gamepadIndex === e.gamepad.index) gamepadIndex = null;
-  // Mostra botões mobile novamente
+  if (ui && ui.mobileReturn) ui.mobileReturn.style.display = 'none';
+  if (ui && ui.mobileSettings) ui.mobileSettings.style.display = 'none';
+  if (ui && ui.mobileStart) ui.mobileStart.style.display = 'none';
+  if (ui && ui.mobileScale) ui.mobileScale.style.display = 'none';
+}
+
+function showMobileButtons() {
   if (ui && ui.mobileLeft) ui.mobileLeft.style.display = '';
   if (ui && ui.mobileRight) ui.mobileRight.style.display = '';
   if (ui && ui.mobileJump) ui.mobileJump.style.display = '';
   if (ui && ui.mobileFire) ui.mobileFire.style.display = '';
+  if (ui && ui.mobileReturn) ui.mobileReturn.style.display = '';
+  if (ui && ui.mobileSettings) ui.mobileSettings.style.display = '';
+  if (ui && ui.mobileStart) ui.mobileStart.style.display = '';
+  if (ui && ui.mobileScale) ui.mobileScale.style.display = '';
+}
 });
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');

@@ -1,25 +1,15 @@
 // Array de 20 fases fixas
 const fixedLevels = [
-  // Fase 1 ajustada para ser totalmente passável
+  // Fase 1 totalmente livre: apenas chão e bandeira
   {
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
     platforms: [
-      { x: 0, y: 500, w: 1000, h: 40, type: 'ground' }, // chão longo
-      { x: 1200, y: 420, w: 200, h: 30, type: 'brick' }, // salto fácil
-      { x: 1600, y: 370, w: 200, h: 30, type: 'brick' }, // salto fácil
-      { x: 2000, y: 500, w: 2000, h: 40, type: 'ground' }, // chão até a bandeira
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' }, // chão até a bandeira
     ],
-    coinItems: [
-      { x: 450, y: 470, r: 10, collected: false },
-      { x: 1300, y: 390, r: 10, collected: false },
-    ],
-    powerups: [
-      { type: 'mushroom', x: 1300, y: 414, w: 26, h: 26, collected: false },
-    ],
-    enemies: [
-      { type: 'patrol', x: 900, y: 470, w: 30, h: 30, vx: 1.5, minX: 800, maxX: 1000, alive: true },
-    ],
+    coinItems: [],
+    powerups: [],
+    enemies: [],
     skyCannons: [],
     spikePistons: [],
     flag: { x: 3800, y: 460, w: 20, h: 80 },
@@ -49,9 +39,19 @@ function pollGamepad() {
 window.addEventListener('gamepadconnected', (e) => {
   gamepadIndex = e.gamepad.index;
   pollGamepad();
+  // Oculta botões mobile
+  if (ui && ui.mobileLeft) ui.mobileLeft.style.display = 'none';
+  if (ui && ui.mobileRight) ui.mobileRight.style.display = 'none';
+  if (ui && ui.mobileJump) ui.mobileJump.style.display = 'none';
+  if (ui && ui.mobileFire) ui.mobileFire.style.display = 'none';
 });
 window.addEventListener('gamepaddisconnected', (e) => {
   if (gamepadIndex === e.gamepad.index) gamepadIndex = null;
+  // Mostra botões mobile novamente
+  if (ui && ui.mobileLeft) ui.mobileLeft.style.display = '';
+  if (ui && ui.mobileRight) ui.mobileRight.style.display = '';
+  if (ui && ui.mobileJump) ui.mobileJump.style.display = '';
+  if (ui && ui.mobileFire) ui.mobileFire.style.display = '';
 });
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');

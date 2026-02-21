@@ -5,7 +5,7 @@ const fixedLevels = [
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
     platforms: [
-      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' }, // chão até a bandeira
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
     ],
     coinItems: [],
     powerups: [],
@@ -15,14 +15,15 @@ const fixedLevels = [
     flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 2
   },
-  // Fase 2 (exemplo genérico)
+  // Fase 2
   {
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
     platforms: [
       { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 800, y: 420, w: 200, h: 20, type: 'platform' },
     ],
-    coinItems: [],
+    coinItems: [{ x: 900, y: 390 }],
     powerups: [],
     enemies: [],
     skyCannons: [],
@@ -30,14 +31,16 @@ const fixedLevels = [
     flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 3
   },
-  // Fase 3 totalmente livre: apenas chão e bandeira
+  // Fase 3
   {
     worldWidth: 4000,
     spawn: { x: 80, y: 430 },
     platforms: [
-      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' }, // chão até a bandeira
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1200, y: 400, w: 200, h: 20, type: 'platform' },
+      { x: 2000, y: 350, w: 200, h: 20, type: 'platform' },
     ],
-    coinItems: [],
+    coinItems: [{ x: 1250, y: 370 }, { x: 2050, y: 320 }],
     powerups: [],
     enemies: [],
     skyCannons: [],
@@ -45,6 +48,164 @@ const fixedLevels = [
     flag: { x: 3800, y: 460, w: 20, h: 80 },
     nextLevel: 4
   },
+  // Fase 4
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1000, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 1800, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2600, y: 300, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1100, y: 390 }, { x: 1900, y: 320 }, { x: 2700, y: 270 }],
+    powerups: [],
+    enemies: [{ x: 1200, y: 470, type: 'goomba' }],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 5
+  },
+  // Fase 5
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 900, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 1700, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2500, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3200, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1000, y: 390 }, { x: 1800, y: 320 }, { x: 2600, y: 270 }, { x: 3300, y: 220 }],
+    powerups: [],
+    enemies: [{ x: 1200, y: 470, type: 'goomba' }, { x: 2000, y: 470, type: 'goomba' }],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 6
+  },
+  // Fase 6
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 800, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 1600, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2400, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3200, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 900, y: 390 }, { x: 1700, y: 320 }, { x: 2500, y: 270 }, { x: 3300, y: 220 }],
+    powerups: [{ x: 1700, y: 320, type: 'mushroom' }],
+    enemies: [{ x: 1200, y: 470, type: 'goomba' }, { x: 2000, y: 470, type: 'goomba' }, { x: 2800, y: 470, type: 'goomba' }],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 7
+  },
+  // Fase 7
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1000, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 1800, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2600, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3400, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1100, y: 390 }, { x: 1900, y: 320 }, { x: 2700, y: 270 }, { x: 3500, y: 220 }],
+    powerups: [{ x: 1900, y: 320, type: 'mushroom' }],
+    enemies: [{ x: 1200, y: 470, type: 'goomba' }, { x: 2000, y: 470, type: 'goomba' }, { x: 2800, y: 470, type: 'goomba' }, { x: 3600, y: 470, type: 'goomba' }],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 8
+  },
+  // Fase 8
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1200, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 2000, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2800, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3600, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1300, y: 390 }, { x: 2100, y: 320 }, { x: 2900, y: 270 }, { x: 3700, y: 220 }],
+    powerups: [{ x: 2100, y: 320, type: 'mushroom' }],
+    enemies: [{ x: 1400, y: 470, type: 'goomba' }, { x: 2200, y: 470, type: 'goomba' }, { x: 3000, y: 470, type: 'goomba' }, { x: 3800, y: 470, type: 'goomba' }],
+    skyCannons: [],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 9
+  },
+  // Fase 9
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1000, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 1800, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2600, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3400, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1100, y: 390 }, { x: 1900, y: 320 }, { x: 2700, y: 270 }, { x: 3500, y: 220 }],
+    powerups: [{ x: 1900, y: 320, type: 'mushroom' }],
+    enemies: [{ x: 1200, y: 470, type: 'goomba' }, { x: 2000, y: 470, type: 'goomba' }, { x: 2800, y: 470, type: 'goomba' }, { x: 3600, y: 470, type: 'goomba' }],
+    skyCannons: [{ x: 2000, y: 500, direction: 'up' }],
+    spikePistons: [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 10
+  },
+  // Fase 10
+  {
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1200, y: 420, w: 200, h: 20, type: 'platform' },
+      { x: 2000, y: 350, w: 200, h: 20, type: 'platform' },
+      { x: 2800, y: 300, w: 200, h: 20, type: 'platform' },
+      { x: 3600, y: 250, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [{ x: 1300, y: 390 }, { x: 2100, y: 320 }, { x: 2900, y: 270 }, { x: 3700, y: 220 }],
+    powerups: [{ x: 2100, y: 320, type: 'mushroom' }],
+    enemies: [{ x: 1400, y: 470, type: 'goomba' }, { x: 2200, y: 470, type: 'goomba' }, { x: 3000, y: 470, type: 'goomba' }, { x: 3800, y: 470, type: 'goomba' }],
+    skyCannons: [{ x: 2200, y: 500, direction: 'up' }],
+    spikePistons: [{ x: 2500, y: 500, w: 60, h: 40 }],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 11
+  },
+  // Fase 11 a 20 (cópias variadas)
+  ...Array.from({ length: 10 }, (_, i) => ({
+    worldWidth: 4000,
+    spawn: { x: 80, y: 430 },
+    platforms: [
+      { x: 0, y: 500, w: 4000, h: 40, type: 'ground' },
+      { x: 1000 + i * 200, y: 420 - i * 10, w: 200, h: 20, type: 'platform' },
+      { x: 1800 + i * 100, y: 350 - i * 10, w: 200, h: 20, type: 'platform' },
+      { x: 2600 + i * 50, y: 300 - i * 10, w: 200, h: 20, type: 'platform' },
+    ],
+    coinItems: [
+      { x: 1100 + i * 200, y: 390 - i * 10 },
+      { x: 1900 + i * 100, y: 320 - i * 10 },
+      { x: 2700 + i * 50, y: 270 - i * 10 },
+    ],
+    powerups: [{ x: 1900 + i * 100, y: 320 - i * 10, type: 'mushroom' }],
+    enemies: [
+      { x: 1200 + i * 100, y: 470, type: 'goomba' },
+      { x: 2000 + i * 100, y: 470, type: 'goomba' },
+      { x: 2800 + i * 100, y: 470, type: 'goomba' },
+    ],
+    skyCannons: i % 2 === 0 ? [{ x: 2000 + i * 100, y: 500, direction: 'up' }] : [],
+    spikePistons: i % 3 === 0 ? [{ x: 2500 + i * 50, y: 500, w: 60, h: 40 }] : [],
+    flag: { x: 3800, y: 460, w: 20, h: 80 },
+    nextLevel: 12 + i
+  })),
 ];
 // --- SUPORTE GAMEPAD ---
 let gamepadIndex = null;

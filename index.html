@@ -1,0 +1,93 @@
+  <!-- Botão para esconder todos os botões -->
+  <button id="hideButtonsBtn" type="button">Ocultar Botões</button>
+<script>
+// Função para esconder/mostrar todos os botões mobile
+const hideButtonsBtn = document.getElementById('hideButtonsBtn');
+let buttonsHidden = false;
+hideButtonsBtn.addEventListener('click', function() {
+  const ids = ['mobileLeft','mobileRight','mobileJump','mobileFire','mobileReturn','mobileSettings','mobileStart','mobileScale'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = buttonsHidden ? '' : 'none';
+  });
+  buttonsHidden = !buttonsHidden;
+  hideButtonsBtn.textContent = buttonsHidden ? 'Mostrar Botões' : 'Ocultar Botões';
+});
+</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <title>Helios Wafer</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section id="mobileSetup" class="mobile-setup" aria-label="Ajuste mobile" hidden>
+    <div class="mobile-setup-card">
+      <h2>Ajuste Mobile</h2>
+      <p id="orientationHint">Gire o celular para jogar em modo paisagem.</p>
+      <label for="mobileScale">Escala da tela <strong id="mobileScaleValue">100%</strong></label>
+      <input id="mobileScale" type="range" min="85" max="130" value="100" step="1" />
+      <button id="mobileStart" type="button">Jogar</button>
+    </div>
+  </section>
+
+  <section id="desktopOnlyNotice" class="desktop-only" aria-label="Somente celular" hidden>
+    <div class="desktop-only-card">
+      <h2>Somente no celular</h2>
+      <p>Este jogo foi configurado para uso mobile com controles touch do Google.</p>
+      <p>Abra no celular e jogue em modo paisagem.</p>
+    </div>
+  </section>
+
+  <main class="game-shell">
+    <h1>Helios Wafer</h1>
+    <p class="subtitle">Use os controles touch para mover, pular, atirar e ajustar.</p>
+
+    <section class="hud" aria-label="Painel do jogo">
+      <div><span>Moedas:</span> <strong id="coins">0</strong>/<span id="coinsTotal">0</span></div>
+      <div><span>Vidas:</span> <strong id="lives">3</strong></div>
+      <div><span>Tempo:</span> <strong id="time">0</strong>s</div>
+      <div><span>Status:</span> <strong id="status">Jogando</strong></div>
+      <div class="audio-panel">
+        <span>Som:</span>
+        <button id="soundToggle" type="button">ON</button>
+        <label for="volumeSlider">Volume <strong id="volumeValue">100%</strong></label>
+        <input id="volumeSlider" type="range" min="0" max="100" value="100" step="1" />
+      </div>
+    </section>
+
+    <canvas id="game" width="960" height="540" aria-label="Jogo de plataforma"></canvas>
+
+    <section class="mobile-controls" aria-label="Controles touch">
+      <div class="mobile-pad">
+        <button id="mobileLeft" type="button" aria-label="Mover para esquerda"><span class="material-symbols-rounded" aria-hidden="true">arrow_back</span></button>
+        <button id="mobileRight" type="button" aria-label="Mover para direita"><span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button>
+      </div>
+      <div class="mobile-actions">
+        <button id="mobileReturn" type="button" aria-label="Voltar"><span class="material-symbols-rounded" aria-hidden="true">keyboard_return</span></button>
+        <button id="mobileSettings" type="button" aria-label="Abrir ajustes"><span class="material-symbols-rounded" aria-hidden="true">settings</span></button>
+        <button id="mobileJump" type="button" aria-label="Pular"><span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span></button>
+        <button id="mobileFire" type="button" aria-label="Atirar"><span class="material-symbols-rounded" aria-hidden="true">local_fire_department</span></button>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button id="restartBtn" type="button">Reiniciar</button>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
